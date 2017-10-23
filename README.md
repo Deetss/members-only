@@ -1,24 +1,4 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a project from [The Odin Project](theodinproject.com) curiculum. It covers rolling a custom authentication system for a web app that allows someone to create a post if logged in. Only members can see who posts, but everyone can see what has been posted.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
