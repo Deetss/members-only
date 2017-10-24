@@ -1,2 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+ul.navbar-right {
+    margin: 0;
+}
+
+.center .jumbotron {
+    text-align: center;
+}
+
+.form-control {
+    width: 35%;
+}
