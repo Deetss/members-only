@@ -1,2 +1,14 @@
 class User < ApplicationRecord
+  has_secure_password
+  validates :name, presence: true, length:{maximum: 12}
+  validates :email, presence: true, length:{maximum: 50}
+  before_create :create_remember_token
+
+
+  private
+  
+  def create_remember_token
+    random_token = SecureRandom.urlsafe_base64.to_s
+    self.remember_token = Digest::SHA1.hexdigest(random_token)
+  end
 end
