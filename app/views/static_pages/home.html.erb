@@ -1,3 +1,7 @@
 <div class="center jumbotron">
-    <%= link_to 'Signup', '#' %>
+    <% if logged_in? %>
+        <%= link_to 'Create new post!', new_post_path %>
+    <% else %>
+        <%= link_to 'Signup', '#' %>
+    <% end %>
 </div>
