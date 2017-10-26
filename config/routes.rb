@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :posts, only: [:new, :create, :edit]
+  
   root 'static_pages#home'
   
   get '/signup', to: 'users#new'
