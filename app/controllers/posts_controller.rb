@@ -57,7 +57,11 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def user_name
+    @user_name = User.select(:name).where(id: @post.user_id)
+  end
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
@@ -66,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :body, :user => @current_user)
+      params.require(:post).permit(:title, :body)
     end
 end
