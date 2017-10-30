@@ -24,13 +24,18 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    if @post
-      @post.save
-      redirect_to posts_url
+    if @current_user
+      @post = @current_user.posts.new(post_params)
+      if @post
+        @post.save
+        redirect_to posts_url
+      else
+        flash[:danger] = "Post was not created!"
+        render :new
+      end
     else
-      flash[:danger] = "Post was not created!"
-      render :new
+      flash[:danger] = "You must be logged in to create a post"
+      redirect_to login_path
     end
   end
 
@@ -56,10 +61,6 @@ class PostsController < ApplicationController
       format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-  
-  def user_name
-    @user_name = User.select(:name).where(id: @post.user_id)
   end
   
   private
